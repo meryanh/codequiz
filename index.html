@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="./includes/drag.css" media="all">
+	<script src="./includes/drag.js"></script>
+	<link rel="stylesheet" href="./index.css" media="all">
+	<script src="./index.js"></script>
+	<script src="./share.js"></script>
+</head>
+
+<body>
+	<div class="drag-overlay"></div>
+
+	<div draggable drag-handle=".drag-handle" class="window" style="top:40px;left:30px;">
+		<div class="drag-handle" text="Editor"></div>
+		<div class="tab-container resize" style="height:480px;width:640px;">
+			<input type="radio" class="tab" name="tabs" id="tab1" checked />
+			<label for="tab1">JavaScript</label>
+			<div class="tab-content">
+				<textarea id="text-js" class="code-area fill" autocomplete="off" spellcheck="false"></textarea>
+			</div>
+			<input type="radio" class="tab" name="tabs" id="tab2" />
+			<label for="tab2">HTML</label>
+			<div class="tab-content">
+				<textarea id="text-html" class="code-area fill" autocomplete="off" spellcheck="false"></textarea>
+			</div>
+		</div>
+		<div style="margin-top: 4px;">
+			<button id="refresh" onclick="getCode()" class="ui-btn" style="background:#014;float:left;">Reset</button>
+			<button id="run" onclick="run()" class="ui-btn" style="background:#140;float:right;">Run ▶</button>
+		</div>
+	</div>
+
+	<div draggable drag-handle=".drag-handle" class="window" style="top:40px;left:690px;">
+		<div class="drag-handle" text="Output"></div>
+		<div class="resize" style="height:240px;width:400px;overflow:hidden;">
+			<iframe id="result-frame" class="fill"></iframe>
+		</div>
+	</div>
+
+	<div draggable drag-handle=".drag-handle" class="window" style="top:320px;left:690px;">
+		<div class="drag-handle" text="Console"></div>
+		<div id="log" class="resize code-area" style="height:235px;width:400px;"></div>
+	</div>
+
+	<button id="prev" onclick="previous()"
+		style="position:absolute;border:0;background:#140;color:#FFF;height:30px;left:0;top:0;">◀ Previous</button>
+	<button id="next" onclick="next()"
+		style="position:absolute;border:0;background:#140;color:#FFF;height:30px;right:0;top:0;">Next ▶</button>
+</body>
+
+</html>
